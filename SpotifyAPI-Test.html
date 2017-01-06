@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SpotifyAPI
+	</title>
+</head>
+<body>
+	<iframe src="https://embed.spotify.com/?uri=spotify:track:02M6vucOvmRfMxTXDUwRXu" frameborder="0" allowtransparency="true"></iframe>
+	<div class="container">
+		<form id="search-form">
+	        <input type="text" id="query" value="" class="form-control" placeholder="Type an Artist/Song Name"/>
+	        <input type="submit" id="search" class="btn btn-primary" value="Search" />
+	    </form>
+	    <div id="results"></div>
+    </div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+
+		function displayResults(event) {
+
+		event.preventDefault();
+		var q = $("#query").val().trim();
+		var queryUrl = "https://api.spotify.com/v1/search?type=track,artist&market=US&limit=10";
+		console.log(q)
+
+		queryUrl += '&' + $.param({
+			'q': q,
+		})
+
+		$.ajax({
+
+        	url: queryUrl,
+        	method: 'GET'
+
+        })
+        .done(function(response) {
+
+        	console.log(response);
+        	var data = response.tracks;
+
+        	var tracks = $("<div>")
+
+        	for(var i = 0; i < data.items.length; i++) {
+
+
+        		var name = data.items[i].name + "<br>";	
+        		var songId = data.items[i].id + "<br>"
+
+        		name += "<br>" + songId
+
+        		tracks.append(name);
+
+        		$("#results").prepend(name + "<br>");
+
+        		// var preview = data.items[i].preview_url;
+
+        		// var image = $("<img class='img'>").attr("src", preview);
+
+        		// tracks.append(image);
+
+        		// $("#results").prepend(result);
+
+        	}
+        })
+ 
+	}
+
+	$(document).on("click", ".btn", displayResults);		
+});
+
+
+</script>
+</body>
+</html>
