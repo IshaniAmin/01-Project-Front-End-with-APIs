@@ -2,13 +2,78 @@
 <html>
 <head>
 	<title>Testing Ticketmaster API</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+
+<h2> Type in an Artist you would like to see! </h2>
+	<form id="artist-search">
+	    <input for=search type="text" id="query" value="" class="form-control" />
+	    <input type="submit" id="search" class="button" value="Search" />
+	</form>
+
+	<br><br>
+
+</form>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 
+$(document).ready( function() {
+
+	// API Key - zyleKSfADiALla0NEoeit7ieP42ITTfA
+
+	//BASIC API URL
+	// https://app.ticketmaster.com/discovery/v1/events.json?apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA
+
+	// search for events with Ariana
+	// http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
+
+	//want to search for a specific artist?
+	// http://app.ticketmaster.com/discovery/v1/events.json?keyword="{ARTIST NAME HERE}"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
+
+	// var artistInput = $(this).attr("???");
+
+function results() {
 	
+	var artistInput = $("#query").val().trim();
+	
+	var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
+
+	$.ajax({
+  		url: queryURL,
+    	method: "GET"
+  	}).done(function(response) {
+
+  		var div = $("<div>");
+
+  		for (var i = 0; i < response._embedded.events.length; i++) {
+
+  		var events = response._embedded.events[i].name;
+
+  		var city = response._embedded.events[i]._embedded.venue[0].city.name;
+
+  		var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
+
+  		div.append(i+1 + ". " + events + " in " + city + ", " + state + "<br>");
+
+  		}
+
+  		// $("body").html("<h1>Upcoming performances</h1>");
+
+  		$("body").append(div);
+
+  	});
+
+  	return false;
+
+};
+
+$(document).on("click", "#search", results);
+
+
+});
 
 </script>
 
