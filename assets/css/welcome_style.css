@@ -1,0 +1,26 @@
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+    background: url("https://static.pexels.com/photos/14676/pexels-photo-14676.png") no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#welcomeButton {
+	clear: both;
+	margin-top: 150px;
+}
