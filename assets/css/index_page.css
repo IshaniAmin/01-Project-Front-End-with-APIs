@@ -1,0 +1,80 @@
+
+/*http://paletton.com/#uid=1380u0kjUkCafuAfrp7oightMb0*/
+
+
+* {
+	box-sizing: border-box;
+}
+
+#header {
+	font-size: 50px;
+	text-align: center;
+	padding: 20px;
+	background-color: #208480;
+	color: white;
+	font-family: 'Muli', sans-serif;
+	border: 2px solid #C0EEEC;
+	border-radius: 25px
+}
+
+#introParagraph {
+	background-color: #5AB4B1;
+	padding: 20px;
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+	color: white;
+	border: 2px solid #C0EEEC;
+	border-radius: 25px
+}
+
+#options {
+	padding: 20px;
+	clear: both;
+}
+
+#optionBlock1{
+	background-color: #89D4D1;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border: 2px solid #C0EEEC;
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+	border-radius: 25px
+	/*text-decoration: underline;*/
+}
+
+#optionBlock2{
+	background-color: #89D4D1;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border: 2px solid #C0EEEC;
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+	border-radius: 25px
+	/*text-decoration: underline;*/
+}
+
+#optionBlock3{
+	background-color: #89D4D1;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border: 2px solid #C0EEEC;
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+	border-radius: 25px
+	/*text-decoration: underline;*/
+}
+
+.pictures {
+	clear: both;
+	height: 200px;
+	width: 300px;
+	padding: 10px;
+	border-radius: 25px
+}
