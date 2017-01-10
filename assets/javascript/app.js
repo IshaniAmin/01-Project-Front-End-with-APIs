@@ -1,50 +1,5 @@
-var users = [
-	{
-		user_name:"Rhyna Silva",
-		email:"rhynas@gmail.com",
-		position: "Full Stack Web Developer",
-		profile_picture:"assets/images/rhynaSilvaPicture.jpg",
-		interest:"Angels, Yoga, The Law of Time, Mayans Culture, Mantras",
-		favorite_spot:"Home",
-		favorite_songs:[1,2],
-	},
-	{
-		user_name:"Ishani Amin",
-		email:"ishaniamin@gmail.com",
-		position:"Full Stack Web Developer",
-		profile_picture:"assets/images/ishaniAminPicture.jpg",
-		interest:"",
-		favorite_spot:"",
-		favorite_songs:[2],
-	},
-	{
-		user_name:"Arron Linton",
-		email:"lintonarron@gmail.com",
-		position:"Full Stack Web Developer",
-		profile_picture:"assets/images/arronLintonPicture.jpg",
-		interest:"",
-		favorite_spot:"",
-		favorite_songs:[1],
-	}
-];
-
-var songs = [
-	{
-		song_id: "1",
-		song_name: "Todavia te Quiero",
-		song_url: "https://open.spotify.com/track/2uthGAtv4a62CMq4kWfeXn",
-		song_picture:"https://d3rt1990lpmkn.cloudfront.net/640/baff341635bec603e5d791abe127a34201b0860c"
-	},
-	{
-		song_id: "2",
-		song_name: "Te Hubieras ido Antes",
-		song_url: "https://open.spotify.com/track/6Xa85yXNGDtBhWQXAo99Ts",
-		song_picture: "https://d3rt1990lpmkn.cloudfront.net/640/dc3f66d87f0a0c9a330497dfa82c44d5409163ab"
-	}
-];
-
-
 $(document).ready(function(){      	
+
   // Initialize Firebase
 	var config = {
 		 apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
@@ -58,30 +13,6 @@ $(document).ready(function(){
 	//Variables
 	//Get a reference to the database service
 	var database = firebase.database();
-
-	//Insert data in the Database
-	function writeUserData(userInfo){
-		database.ref('users/').push(userInfo);
-	};
-
-	function writeSongData(songInfo){
-		database.ref('songs/').push(songInfo);
-	};
-	//Create database from the array of objects with user information
-	//this will change with the user input from the registration Page
-	//Setting initial value from our Dropdown list
-	$("#add-user-btn").on('click', function(){
-		console.log("in");
-		for (var i = 0; i < users.length; i++) {
-			writeUserData(users[i]);
-		}
-
-		for (var i = 0; i < songs.length; i++) {
-			writeSongData(songs[i]);
-		}
-
-	});
-
     // Firebase watcher + initial loader 
     database.ref('/users').on("child_added", function(childSnapshot) {
  
@@ -96,11 +27,11 @@ $(document).ready(function(){
       console.log(childSnapshot.val().favorite_spot);
 
       // full list of items to the well
-      $("#full-user-list").append
-      ("<div class='card'><span class='card-title'> " + childSnapshot.val().name +
-        " </span><span id='email'> " + childSnapshot.val().email +
-        " </span><span id='age'> " + childSnapshot.val().age +
-        " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
+      // $("#full-user-list").append
+      // ("<div class='card'><span class='card-title'> " + childSnapshot.val().name +
+      //   " </span><span id='email'> " + childSnapshot.val().email +
+      //   " </span><span id='age'> " + childSnapshot.val().age +
+      //   " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
 
     // Handle the errors
     }, function(errorObject) {
