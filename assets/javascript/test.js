@@ -82,25 +82,42 @@ $(document).ready(function(){
 
 	});
 
-    // Firebase watcher + initial loader 
-    database.ref('/users').on("child_added", function(childSnapshot) {
- 
-      // $('.collection').append('<a href="#" class="collection-item" data-key="'+childSnapshot.key+'"></a>'+childSnapshot.val().user_name)
 
-		console.log(childSnapshot.val().user_name);
-      console.log("Data" + childSnapshot.key);
-      console.log(childSnapshot.val());
-      console.log(childSnapshot.val().email);
-      console.log(childSnapshot.val().position);
-      console.log(childSnapshot.val().interest);
-      console.log(childSnapshot.val().favorite_spot);
+
+	$('.carousel-item').on('click', function(){
+		console.log($(this).attr("data-index"));
+	});
+
+	database.ref('/users').on("value", function(data){
+		// $('.carousel').append('<a>').attr('data-key', data.key)
+		// var db = data.val();
+		// console.log("Data" + data.key);
+	})
+
+
+    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+    database.ref('/users').on("child_added", function(childSnapshot) {
+    	// debugger;
+      // Log everything that's coming out of snapshot
+
+      $('.collection').append('<a href="#" class="collection-item" data-key="'+childSnapshot.key+'"></a>'+childSnapshot.val().user_name)
+      // $('.collection').append('<a href="#" class="collection-item circle avatar" data-key="'+childSnapshot.key+'"><img src="'+childSnapshot.val().profile_picture+'"></a>')
+		// $('.carousel').carousel();
+
+		// console.log(childSnapshot.val().user_name);
+      // console.log("Data" + childSnapshot.key);
+      // console.log(childSnapshot.val());
+      // console.log(childSnapshot.val().email);
+      // console.log(childSnapshot.val().position);
+      // console.log(childSnapshot.val().interest);
+      // console.log(childSnapshot.val().favorite_spot);
 
       // full list of items to the well
-      $("#full-user-list").append
-      ("<div class='card'><span class='card-title'> " + childSnapshot.val().name +
-        " </span><span id='email'> " + childSnapshot.val().email +
-        " </span><span id='age'> " + childSnapshot.val().age +
-        " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
+      // $("#full-member-list").append
+      // ("<div class='well'><span id='name'> " + childSnapshot.val().name +
+      //   " </span><span id='email'> " + childSnapshot.val().email +
+      //   " </span><span id='age'> " + childSnapshot.val().age +
+      //   " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
 
     // Handle the errors
     }, function(errorObject) {
