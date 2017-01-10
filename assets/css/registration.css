@@ -1,0 +1,14 @@
+	.img {
+		width: 250px;
+		height: 250px;
+		border-style: outset;
+	}
+
+	.preveiw {
+		width: 250px;
+		height: 100px;
+	}
+	
+	.tracks {
+		display: inline;
+	}
