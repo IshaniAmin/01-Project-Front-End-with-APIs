@@ -1,13 +1,71 @@
-
 <!-- User can view personal profiles of different people -->
 
-
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head>
-	<title></title>
+	<meta charset="utf-8">
+
+	<title>Profile Page</title>
+
+	<!-- Jquery Link -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- Firebase JavaScript Link -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+	 <!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+	<!-- App JavaScript Link -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">          
+
 </head>
 <body>
+	<h1>Profile Page</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col m6" id="#full-user-list">
+				<div class="collection">
+				</div>			
+
+			</div>
+			<div class="col m6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">My Profile</h3>
+					</div>
+					<div class="panel-body">
+						<div id="user-name-div"></div>
+						<div id="email-div"></div>
+						<div id="position-div"></div>
+						<div id="interest-div"></div>
+						<div id="fav-spot-div"></div>
+						<div id="fav-songs-div"></div>
+					</div>
+          	</div>				
+			</div>
+            
+
+
+
+
+
+
+			<!-- add data in the database -->
+			<button id="add-user-btn">add</button>		
+			<div id="show"></div>
+
+
+
+
+
+		</div>
+	</div> <!--End Container-->
 
 </body>
 </html>
