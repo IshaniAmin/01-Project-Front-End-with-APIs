@@ -1,6 +1,8 @@
-#body {
-	margin-top: 30px;
-}
+
+
+/*#page-title {
+	border-style: outset;
+}*/
 
 h1 {
 	text-align: center;
@@ -8,11 +10,16 @@ h1 {
 
 #idContainer {
 	margin-left: 15px;
+	border-style: outset;
 }
 
 #basic-info {
 	font-weight: bold;
 	font-size: 20px;
+}
+
+#spotify-search {
+	border-style: outset;
 }
 	
 #search-song {
@@ -35,4 +42,10 @@ h1 {
 
 #track {
 	margin-bottom: 15px;
+}
+
+
+#submit-playlist {
+	margin-top: 15px;
+	float: right;
 }
