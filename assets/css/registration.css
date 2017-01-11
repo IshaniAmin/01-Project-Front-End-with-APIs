@@ -1,14 +1,38 @@
-	.img {
-		width: 250px;
-		height: 250px;
-		border-style: outset;
-	}
+#body {
+	margin-top: 30px;
+}
 
-	.preveiw {
-		width: 250px;
-		height: 100px;
-	}
+h1 {
+	text-align: center;
+}
+
+#idContainer {
+	margin-left: 15px;
+}
+
+#basic-info {
+	font-weight: bold;
+	font-size: 20px;
+}
 	
-	.tracks {
-		display: inline;
-	}
+#search-song {
+	font-weight: bold;
+	font-size: 20px;
+}
+.img-rounded {
+	border-style: outset;
+}
+	
+/*.preveiw {
+	width: 250px;
+	height: 100px;
+}*/
+
+
+#results {
+	margin-top: 10px;
+}
+
+#track {
+	margin-bottom: 15px;
+}
