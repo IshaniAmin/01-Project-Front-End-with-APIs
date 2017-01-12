@@ -84,7 +84,7 @@ $(document).ready( function() {
 
 		event.preventDefault();
 		var q = $("#query").val().trim();
-		var queryUrl = "https://api.spotify.com/v1/search?type=track,artist&market=US&limit=5";
+		var queryUrl = "https://api.spotify.com/v1/search?type=track,artist&market=US&limit=10";
 		console.log(q)
 
 		queryUrl += '&' + $.param({
@@ -110,7 +110,7 @@ $(document).ready( function() {
         		var artist = data.items[i].artists[0].name;
         		var albumArt = data.items[i].album.images[0].url;
 
-        		var image = $("<img class='img-rounded' width='150px' height='150px'>").attr("src", albumArt);
+        		var image = $("<img class='img-rounded' width='165px' height='150px'>").attr("src", albumArt);
         		var p = $("<p class='songInfo'>")
         		p = songName + "By:" + artist;
 
@@ -119,7 +119,7 @@ $(document).ready( function() {
         		// var trackUri = "https://embed.spotify.com/?uri=" + uri; 
 
         		var preview = data.items[i].preview_url;
-        		var column = $("<td class='col-md-5'id='resultCol'>");
+        		var column = $("<td class='col-md-4'id='resultCol'>");
         		var playButton = $("<video width='300px' height='85px' class='preview' controls>").attr("src", preview);
         		
         		var playlistAdd = $("<button type='button' class='add btn-primary'>").text("Add To Playlist");
@@ -128,7 +128,6 @@ $(document).ready( function() {
         		tracks.append(image);
         		
         		tracks.append(column);
-        		// tracks.append("</td>");
         		tracks.append(playlistAdd);
 
         		// $(".song").on("load", function preventAutoPlay(event) {
@@ -188,6 +187,8 @@ $(document).ready( function() {
 				// })
 
 				var trackName = data.items[index].name;
+				var trackArtist = data.items[index].artists[0].name
+				trackName += "<br>" + "By:" + trackArtist;
 				console.log(trackName);
 				songList.push(trackName);
 	     		renderSongs();
