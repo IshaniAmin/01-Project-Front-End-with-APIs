@@ -28,16 +28,24 @@ next column: songs they like/listening too -->
 
 <body>
 
+<div id="list" class="list-group"><!-- 
+  <button type="button" class="list-group-item">Cras justo odio</button>
+  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+  <button type="button" class="list-group-item">Morbi leo risus</button>
+  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+  <button type="button" class="list-group-item">Vestibulum at eros</button> -->
+</div>
+
 	<div id="cards" class="row">
 	  <div class="col-md-5 col-md-offset-1">
 	    <div class="card">
 	      <div id="card1" class="card-block">
-	        <h3 id="cardTitle1" class="card-title">Name:</h3>
+	        <h3 id="cardTitle1" id="name" class="card-title">Name:</h3>
 	        	<div id = "cardText1">
-			        <p class="card-text">Email: </p>
-			        <p class="card-text">Position: </p>
-			        <p class="card-text">Interests: </p>
-			        <p class="lastText" class="card-text">Favorite Spot: </p>
+			        <p id="email" class="card-text">Email: </p>
+			        <p id="position" class="card-text">Position: </p>
+			        <p id="interests" class="card-text">Interests: </p>
+			        <p id="favSpot" class="lastText" class="card-text">Favorite Spot: </p>
 			    </div>
 	      </div>
 	    </div>
@@ -48,6 +56,7 @@ next column: songs they like/listening too -->
 	        <h3 id="cardTitle2" class="card-title">Favorite songs</h3>
 	        	<div id = "cardText2">
 	        		<p class="lastText" class="card-text">Songs: </p>
+	        		<p id="addSongs"></p>
 	        	</div>
 	      </div>
 	    </div>
@@ -58,7 +67,7 @@ next column: songs they like/listening too -->
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
-	<script type="text/javascript" src="assets/javascript/personal_profile.js"></script>
+	<!-- <script type="text/javascript" src="assets/javascript/personal_profile.js"></script> -->
 		</div>
 	</div> 
 

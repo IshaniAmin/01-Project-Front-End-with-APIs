@@ -1,20 +1,50 @@
 
-#songSearch {
-	padding-top: 20px;
-	padding-bottom: 20px;
+/*#page-title {
+	border-style: outset;
+}*/
+
+h1 {
+	text-align: center;
 }
 
-.img {
-	width: 250px;
-	height: 250px;
+#idContainer {
+	margin-left: 15px;
 	border-style: outset;
 }
 
-.preview {
-	width: 250px;
-	height: 100px;
+#basic-info {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#spotify-search {
+	border-style: outset;
 }
 	
-.tracks {
-	display: inline;
+#search-song {
+	font-weight: bold;
+	font-size: 20px;
+}
+.img-rounded {
+	border-style: outset;
+}
+	
+/*.preveiw {
+	width: 250px;
+	height: 100px;
+}*/
+
+
+#results {
+	margin-top: 10px;
+}
+
+#track {
+	margin-bottom: 15px;
+}
+
+
+#submit-playlist {
+	margin-top: 15px;
+	float: right;
 }
