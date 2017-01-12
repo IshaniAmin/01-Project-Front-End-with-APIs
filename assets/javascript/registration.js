@@ -34,16 +34,13 @@ $("#submit-playlist").on("click", function(event) {
 	interest = $("#profile-interests").val().trim();
 	fav_spot = $("#profile-fav-spot").val().trim();
 
-	for (var k=0; k < songList.length; k++) {
 
-		var fav_song = songList[k];
-		user_fav_songs.push(fav_song);
+	// for (var k=0; k < songList.length; k++) {
+	// 	var fav_song = songList[k];
+	// 	user_fav_songs.push(fav_song);
 
-	}
+	// }
 	
-	
-
-
 	// Code for the push
 	database.ref('users/').push({
 			user_name : name,
@@ -52,7 +49,6 @@ $("#submit-playlist").on("click", function(event) {
 			// user_profile_picture : profile,
 			user_interest : interest, 
 			user_fav_spot: fav_spot,
-			user_fav_songs: user_fav_songs,
 			    
 	  	dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
@@ -106,30 +102,33 @@ $(document).ready( function() {
         	console.log(response);
         	var data = response.tracks
 
+
         	for(var i = 0; i < data.items.length; i++) {
         	var tracks = $("<tr id='track'>");
 
         		var songName = "<br>" + data.items[i].name + "<br>";	
-
+        		var artist = data.items[i].artists[0].name;
         		var albumArt = data.items[i].album.images[0].url;
 
         		var image = $("<img class='img-rounded' width='150px' height='150px'>").attr("src", albumArt);
         		var p = $("<p class='songInfo'>")
-        		p = songName;
+        		p = songName + "By:" + artist;
 
         		var uri = data.items[i].uri;
 
         		// var trackUri = "https://embed.spotify.com/?uri=" + uri; 
 
         		var preview = data.items[i].preview_url;
-
-        		var playButton = $("<iframe class='preview'>").attr("src", preview).attr("frameborder", 1).attr("allowtransparency", true);
-
-        		var playlistAdd = $("<button type='button' class='add'>").text("Add To Playlist");
-
-        		tracks.append("<td class='col-md-2'>" + songName + "</td>");
+        		var column = $("<td class='col-md-5'id='resultCol'>");
+        		var playButton = $("<video width='300px' height='85px' class='preview' controls>").attr("src", preview);
+        		
+        		var playlistAdd = $("<button type='button' class='add btn-primary'>").text("Add To Playlist");
+        		column.prepend(playButton);
+        		tracks.append("<td class='col-md-2'>" + p + "</td>");
         		tracks.append(image);
-        		tracks.append("<td class='col-md-5'>" + playButton);
+        		
+        		tracks.append(column);
+        		// tracks.append("</td>");
         		tracks.append(playlistAdd);
 
         		// $(".song").on("load", function preventAutoPlay(event) {
@@ -184,6 +183,10 @@ $(document).ready( function() {
 					song_picture: picture
 				})
 
+				// database.ref('users/').push({
+				// 	user_fav_songs: id,
+				// })
+
 				var trackName = data.items[index].name;
 				console.log(trackName);
 				songList.push(trackName);
@@ -199,7 +202,7 @@ $(document).on("click", "#search", displayResults);
  $("#clr").on("click", function(event) {
         event.preventDefault();
        $("#search-form")[0].reset();
-        $("#searchResults").empty();
+       $("#searchResults").empty();
   });	
 
 });
