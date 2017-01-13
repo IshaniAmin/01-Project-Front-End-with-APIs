@@ -34,12 +34,12 @@ $("#submit-playlist").on("click", function(event) {
 	interest = $("#profile-interests").val().trim();
 	fav_spot = $("#profile-fav-spot").val().trim();
 
+	// Code to push songList array into the user_fav_songs array
 
-	// for (var k=0; k < songList.length; k++) {
-	// 	var fav_song = songList[k];
-	// 	user_fav_songs.push(fav_song);
-
-	// }
+	for (var k=0; k < songList.length; k++) {
+		fav_song = songList[k];
+		user_fav_songs.push(fav_song);
+	}
 	
 	// Code for the push
 	database.ref('users/').push({
@@ -49,9 +49,12 @@ $("#submit-playlist").on("click", function(event) {
 			// user_profile_picture : profile,
 			user_interest : interest, 
 			user_fav_spot: fav_spot,
+			user_fav_songs: fav_song
 			    
-	  	dateAdded: firebase.database.ServerValue.TIMESTAMP
+	  	// dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
+	console.log(user_fav_songs);
+	window.location.replace("personal_profile.html");
 });
 
 
@@ -84,7 +87,7 @@ $(document).ready( function() {
 
 		event.preventDefault();
 		var q = $("#query").val().trim();
-		var queryUrl = "https://api.spotify.com/v1/search?type=track,artist&market=US&limit=5";
+		var queryUrl = "https://api.spotify.com/v1/search?type=track,artist&market=US&limit=10";
 		console.log(q)
 
 		queryUrl += '&' + $.param({
@@ -110,16 +113,16 @@ $(document).ready( function() {
         		var artist = data.items[i].artists[0].name;
         		var albumArt = data.items[i].album.images[0].url;
 
-        		var image = $("<img class='img-rounded' width='150px' height='150px'>").attr("src", albumArt);
+        		var image = $("<img class='img-rounded' width='165px' height='150px'>").attr("src", albumArt);
         		var p = $("<p class='songInfo'>")
         		p = songName + "By:" + artist;
 
         		var uri = data.items[i].uri;
 
-        		// var trackUri = "https://embed.spotify.com/?uri=" + uri; 
+        		var trackUri = "https://embed.spotify.com/?uri=" + uri; 
 
         		var preview = data.items[i].preview_url;
-        		var column = $("<td class='col-md-5'id='resultCol'>");
+        		var column = $("<td class='col-md-4'id='resultCol'>");
         		var playButton = $("<video width='300px' height='85px' class='preview' controls>").attr("src", preview);
         		
         		var playlistAdd = $("<button type='button' class='add btn-primary'>").text("Add To Playlist");
@@ -128,7 +131,6 @@ $(document).ready( function() {
         		tracks.append(image);
         		
         		tracks.append(column);
-        		// tracks.append("</td>");
         		tracks.append(playlistAdd);
 
         		// $(".song").on("load", function preventAutoPlay(event) {
@@ -170,8 +172,9 @@ $(document).ready( function() {
 				index = ($(this).index('.add'));
 				console.log(index)
 				id = data.items[index].id;
-				url = data.items[index].external_urls.spotify;
+				url = data.items[index].preview_url;
 				name = data.items[index].name;
+				artist = data.items[index].artists[0].name
 				
 				picture = data.items[index].album.images[0].url;
 				     	
@@ -179,6 +182,7 @@ $(document).ready( function() {
 				database.ref('songs/').push({
 					song_id: id,
 					song_name: name,
+					song_artist: artist,
 					song_url: url,
 					song_picture: picture
 				})
@@ -188,11 +192,26 @@ $(document).ready( function() {
 				// })
 
 				var trackName = data.items[index].name;
+				// var trackArtist = data.items[index].artists[0].name;
+				// trackName += "By:" + trackArtist;
 				console.log(trackName);
 				songList.push(trackName);
 	     		renderSongs();
 				
-			});	
+			});
+
+		// $("#submit-playlist").on("click", function() {
+			
+
+
+		// 	// Code for the push
+		// 	database.ref('users/').push({
+		// 		user_fav_songs: fav_song
+			    
+		//   	dateAdded: firebase.database.ServerValue.TIMESTAMP
+		// 	});
+
+		// })
        })
     }
  
