@@ -1,5 +1,6 @@
 
 
+
 /*#page-title {
 	border-style: outset;
 }*/
@@ -48,4 +49,55 @@ h1 {
 #submit-playlist {
 	margin-top: 15px;
 	float: right;
+=======
+
+/*#page-title {
+	border-style: outset;
+}*/
+
+h1 {
+	text-align: center;
+}
+
+#idContainer {
+	margin-left: 15px;
+	border-style: outset;
+}
+
+#basic-info {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#spotify-search {
+	border-style: outset;
+}
+	
+#search-song {
+	font-weight: bold;
+	font-size: 20px;
+}
+.img-rounded {
+	border-style: outset;
+}
+	
+/*.preveiw {
+	width: 250px;
+	height: 100px;
+}*/
+
+
+#results {
+	margin-top: 10px;
+}
+
+#track {
+	margin-bottom: 15px;
+}
+
+
+#submit-playlist {
+	margin-top: 15px;
+	float: right;
+
 }

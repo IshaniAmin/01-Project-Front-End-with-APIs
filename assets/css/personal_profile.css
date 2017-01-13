@@ -1,0 +1,52 @@
+
+* {
+	box-sizing: border-box;
+}
+
+#cards {
+	padding-top: 50px;
+}
+
+#card1 {
+	border: 2px solid #C0EEEC;
+}
+
+#card2 {
+	border: 2px solid #C0EEEC;
+}
+
+#cardTitle1 {
+	border-bottom: 1px solid black;
+	padding: 5px;
+	background-color: #208480;
+	color: white;
+	margin: 0;
+	font-family: 'Muli', sans-serif;
+}
+
+#cardTitle2 {
+	border-bottom: 1px solid black;
+	padding: 5px;
+	background-color: #208480;
+	color: white;
+	margin: 0;
+	font-family: 'Muli', sans-serif;
+}
+
+#cardText1{
+	background-color: #89D4D1;
+	color: white;
+	padding: 10px;
+	font-family: 'Muli', sans-serif;
+}
+
+#cardText2{
+	background-color: #89D4D1;
+	color: white;
+	padding: 10px;
+	font-family: 'Muli', sans-serif;
+}
+
+.lastText {
+	margin-bottom: 0;
+}

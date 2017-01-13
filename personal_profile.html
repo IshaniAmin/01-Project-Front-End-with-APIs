@@ -7,65 +7,68 @@
 
 	<title>Profile Page</title>
 
-	<!-- Jquery Link -->
-	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
-	<!-- Firebase JavaScript Link -->
-	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/personal_profile.css">
 
-	 <!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-	<!-- Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-
-	<!-- App JavaScript Link -->
-	<script type="text/javascript" src="assets/javascript/app.js"></script>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">          
+	<link rel="stylesheet" type="text/css" href="assets/css/index_page.css">   
 
 </head>
+<!-- 
+name
+email
+position
+interests
+favorite spot
+next column: songs they like/listening too -->
+
 <body>
-	<h1>Profile Page</h1>
-	<div class="container">
-		<div class="row">
-			<div class="col m6" id="#full-user-list">
-				<div class="collection">
-				</div>			
 
-			</div>
-			<div class="col m6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">My Profile</h3>
-					</div>
-					<div class="panel-body">
-						<div id="user-name-div"></div>
-						<div id="email-div"></div>
-						<div id="position-div"></div>
-						<div id="interest-div"></div>
-						<div id="fav-spot-div"></div>
-						<div id="fav-songs-div"></div>
-					</div>
-          	</div>				
-			</div>
-            
+<div id="list" class="list-group"><!-- 
+  <button type="button" class="list-group-item">Cras justo odio</button>
+  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+  <button type="button" class="list-group-item">Morbi leo risus</button>
+  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+  <button type="button" class="list-group-item">Vestibulum at eros</button> -->
+</div>
 
-
-
-
-
-
-			<!-- add data in the database -->
-			<button id="add-user-btn">add</button>		
-			<div id="show"></div>
-
-
-
-
-
+	<div id="cards" class="row">
+	  <div class="col-md-5 col-md-offset-1">
+	    <div class="card">
+	      <div id="card1" class="card-block">
+	        <h3 id="cardTitle1" id="name" class="card-title">Name:</h3>
+	        	<div id = "cardText1">
+			        <p id="email" class="card-text">Email: </p>
+			        <p id="position" class="card-text">Position: </p>
+			        <p id="interests" class="card-text">Interests: </p>
+			        <p id="favSpot" class="lastText" class="card-text">Favorite Spot: </p>
+			    </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-5">
+	    <div class="card">
+	      <div id="card2" class="card-block">
+	        <h3 id="cardTitle2" class="card-title">Favorite songs</h3>
+	        	<div id = "cardText2">
+	        		<p class="lastText" class="card-text">Songs: </p>
+	        		<p id="addSongs"></p>
+	        	</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<!-- <script type="text/javascript" src="assets/javascript/personal_profile.js"></script> -->
 		</div>
-	</div> <!--End Container-->
+	</div> 
 
 </body>
 </html>
