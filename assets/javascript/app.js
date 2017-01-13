@@ -2,20 +2,20 @@ $(document).ready(function(){
 
 // Initialize Firebase
 //---------------------------------------------------------------------------------------
-	var config = {
-		 apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
-		 authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
-		 databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
-		 storageBucket: "project-01-front-end-wit-39454.appspot.com",
-		 messagingSenderId: "780675474319"
-	};
-	firebase.initializeApp(config);
+  var config = {
+     apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
+     authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
+     databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
+     storageBucket: "project-01-front-end-wit-39454.appspot.com",
+     messagingSenderId: "780675474319"
+  };
+  firebase.initializeApp(config);
 //---------------------------------------------------------------------------------------
 
-	//Variables
-	//Get a reference to the database service
+  //Variables
+  //Get a reference to the database service
 //---------------------------------------------------------------------------------------
-	var database = firebase.database();
+  var database = firebase.database();
 //---------------------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 
               for (var i=0; i < data.val().user_fav_songs.length; i++) {
-                $("#addSongs").append(data.val().user_fav_songs[i] + "<br>");
+                $("#addSongs").append(data.val().user_fav_songs[i]);
               }
 
               event.preventDefault();
@@ -61,7 +61,10 @@ $(document).ready(function(){
                   
           // http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
 
+          // http://www.ticketmaster.com/search?tm_link=tm_homeA_header_search&user_input=ariana&q=ariana
+
           var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
+
 
           $.ajax({
               url: queryURL,
@@ -74,14 +77,15 @@ $(document).ready(function(){
                 var event = response._embedded.events[i].name;
                 var city = response._embedded.events[i]._embedded.venue[0].city.name;
                 var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
-                div.append(i+1 + ". " + event + " in " + city + ", " + state + "<br>");
+                div.append(i+1 + ". " + 
+                  "<a href='www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
+
+                // <a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>
               }
 
-              $("#addEvents").html("<p>Upcoming performances</p>");
+              $("#addEvents").html("<p>Upcoming performances:</p>");
 
               $("#addEvents").append(div);
-
-              // return false;
 
             });
 
