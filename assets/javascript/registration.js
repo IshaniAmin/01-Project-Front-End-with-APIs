@@ -55,7 +55,7 @@ $("#submit-playlist").on("click", function(event) {
 	  	// dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 	console.log(user_fav_songs);
-	// window.location.replace("personal_profile.html");
+	window.location.replace("personal_profile.html");
 });
 
 
