@@ -18,22 +18,11 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/index_page.css">   
 
 </head>
-<!-- 
-name
-email
-position
-interests
-favorite spot
-next column: songs they like/listening too -->
 
 <body>
 
-<div id="list" class="list-group"><!-- 
-  <button type="button" class="list-group-item">Cras justo odio</button>
-  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-  <button type="button" class="list-group-item">Morbi leo risus</button>
-  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-  <button type="button" class="list-group-item">Vestibulum at eros</button> -->
+<div id="list" class="list-group">
+
 </div>
 
 	<div id="cards" class="row">
@@ -53,19 +42,40 @@ next column: songs they like/listening too -->
 	  <div class="col-md-5">
 	    <div class="card">
 	      <div id="card2" class="card-block">
-	        <h3 id="cardTitle2" class="card-title">Favorite songs</h3>
+	        <h3 id="cardTitle3" class="card-title">Favorite songs</h3>
 	        	<div id = "cardText2">
-	        		<p class="lastText" class="card-text">Songs: </p>
+	        		<!-- <p class="lastText" class="card-text">Songs: </p> -->
 	        		<p id="addSongs"></p>
 	        	</div>
 	      </div>
 	    </div>
 	  </div>
+		
+		<br><br>
+
+	  <div class="col-md-5 col-md-offset-4">
+	    <div class="card">
+	      <div id="card3" class="card-block">
+	        <h3 id="cardTitle2" class="card-title">Upcoming Events</h3>
+	        	<div id = "cardText3">
+	        		<!-- <p class="lastText" class="card-text">Events: </p> -->
+	        		<p> Type in an Artist you would like to see! </p>
+						<form id="artist-search">
+	    					<input for=search type="text" id="query" value="" class="form-control" />
+	    					<input type="submit" id="search" class="button" value="Search" />
+						</form>
+					<div id="addEvents"></div>
+	        	</div>
+	      </div>
+	    </div>
+	  </div>
+
 	</div>
 
 
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- <script type="text/javascript" src="assets/javascript/registration.js"></script> -->
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 	<!-- <script type="text/javascript" src="assets/javascript/personal_profile.js"></script> -->
 		</div>
