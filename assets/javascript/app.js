@@ -2,14 +2,14 @@ $(document).ready(function(){
 
 // Initialize Firebase
 //---------------------------------------------------------------------------------------
-  var config = {
-     apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
-     authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
-     databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
-     storageBucket: "project-01-front-end-wit-39454.appspot.com",
-     messagingSenderId: "780675474319"
-  };
-  firebase.initializeApp(config);
+var config = {
+   apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
+   authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
+   databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
+   storageBucket: "project-01-front-end-wit-39454.appspot.com",
+   messagingSenderId: "780675474319"
+};
+firebase.initializeApp(config);
 //---------------------------------------------------------------------------------------
 
   //Variables
@@ -19,46 +19,54 @@ $(document).ready(function(){
 //---------------------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------------------
-  database.ref('/users').on("value", function(data){
+database.ref('/users').on("value", function(data){
 
-      $(".list-group-item").on("click", function(event) {
+  $(".list-group-item").on("click", function(event) {
 
-          $("#cardTitle1").empty();
-          $("#email").empty();
-          $("#position").empty();
-          $("#interests").empty();
-          $("#favSpot").empty();
-          $("#addSongs").empty();
-    
-          var currentKey = $(this).attr("data-key");
-            console.log(currentKey);
+    $("#cardTitle1").empty();
+    $("#email").empty();
+    $("#position").empty();
+    $("#interests").empty();
+    $("#favSpot").empty();
+    $("#addSongs").empty();
 
-            //------------------------------------------------------------------
-            database.ref('users/' + currentKey).on('value', function(data) {
-
-              $("#cardTitle1").append("Name: " + data.val().user_name);
-              $("#email").append("Email: " + data.val().user_email);
-              $("#position").append("Position: " + data.val().user_position);
-              $("#interests").append("Interest: " + data.val().user_interest);
-              $("#favSpot").append("Favorite Spot: " + data.val().user_fav_spot);
+    var currentKey = $(this).attr("data-key");
+    //------------------------------------------------------------------
+    database.ref('users/' + currentKey).on('value', function(data) {
+      console.log(currentKey);
+      $("#cardTitle1").append("Name: " + data.val().user_name);
+      $("#email").append("Email: " + data.val().user_email);
+      $("#position").append("Position: " + data.val().user_position);
+      $("#interests").append("Interest: " + data.val().user_interest);
+      $("#favSpot").append("Favorite Spot: " + data.val().user_fav_spot);
 
 
-              for (var i=0; i < data.val().user_fav_songs.length; i++) {
-                $("#addSongs").append(data.val().user_fav_songs[i]);
+
+     for (var i=0; i < data.val().user_fav_songs.length; i++) {
+                keysong = data.val().user_fav_songs[i];
+                var ref = database.ref("songs/"+ keysong);
+                ref.on("value",function(snapshot) {
+                  console.log(snapshot.val().song_name);
+                  $("#addSongs").append(snapshot.val().song_name + " by " + snapshot.val().song_artist + "<br>");
+ 
+                });
               }
+        //------------------------------------------------------------------
+    });//end database.ref('users/')
 
-              event.preventDefault();
+    database.ref('songs/').on('value', function(data){
+      console.log(data.val().song_name);
 
-              });
-            //------------------------------------------------------------------
-      });
+    })
+  });
+
 //---------------------------------------------------------------------------------------
 
 // //---------------------------------------------------------------------------------------
 //     function results() {
-    
+  
 //           var artistInput = $("#query").val().trim();
-                  
+                
 //           // http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
 
 //           // http://www.ticketmaster.com/search?tm_link=tm_homeA_header_search&user_input=ariana&q=ariana
@@ -97,20 +105,20 @@ $(document).ready(function(){
 // //---------------------------------------------------------------------------------------
 //     $(document).on("click", "#search", results);
 //---------------------------------------------------------------------------------------
-  
-  }); //ends the "database.ref('/users').on("value", function(data)"
+
+}); //ends the "database.ref('/users').on("value", function(data)"
 
 
 // Puts users' names into buttons dynamically
 //---------------------------------------------------------------------------------------
-  database.ref('/users').on("child_added", function(childSnapshot) {
+database.ref('/users').on("child_added", function(childSnapshot) {
 
-    $("#list").append("<button id='listButtons' type='button' class='list-group-item' data-key=" + childSnapshot.key + ">" + childSnapshot.val().user_name + "</button>");
+  $("#list").append("<button id='listButtons' type='button' class='list-group-item' data-key=" + childSnapshot.key + ">" + childSnapshot.val().user_name + "</button>");
 
-  // Handle the errors
-  }, function(errorObject) {
-    console.log("Errors handled: " + errorObject.code);
-  });
+// Handle the errors
+}, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
 //---------------------------------------------------------------------------------------
 
     
