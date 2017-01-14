@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/welcome_style.css"> -->
+
+	<style type="text/css">
+		
+		#mainStuff {
+			z-index: 99;
+		}
+
+		#rcb {
+			left: 210px;
+			top: 10px;
+		}
+
+		#welcomeHeader {
+			margin-top: 600px;
+		}
+
+		#welcomeButton {
+			margin-top: 750px;
+		}
+
+		#backgroundPics {
+			z-index: 0;
+		}
+
+		.css-slideshow{
+		   position: relative;
+		   max-width: 100%;
+		   height: 100%
+		   margin: 5em auto .5em auto;
+		}
+		.css-slideshow figure{
+		   margin: 0;
+		   position: absolute;
+		}
+		.css-slideshow figcaption{
+		   position: absolute;
+		   top: 0;
+		   color: #fff;
+		   background: rgba(0,0,0, .3);
+		   font-size: .8em;
+		   padding: 8px 12px;
+		   opacity: 0;
+		   transition: opacity .5s;
+		}
+		.css-slideshow:hover figure figcaption{
+		   transition: opacity .5s;
+		   opacity: 1;
+		}
+		.css-slideshow figure{
+		   opacity:0;
+		}
+
+		figure:nth-child(1) {
+		   animation: xfade 48s 42s infinite;
+		}
+		figure:nth-child(2) {
+		   animation: xfade 48s 36s infinite;
+		}
+		figure:nth-child(3) {
+		   animation: xfade 48s 30s infinite;
+		}
+		figure:nth-child(4) {
+		   animation: xfade 48s 24s infinite;
+		}
+		figure:nth-child(5) {
+		   animation: xfade 48s 18s infinite;
+		}
+		figure:nth-child(6) {
+		   animation: xfade 48s 12s infinite;
+		}
+		figure:nth-child(7) {
+		   animation: xfade 48s 6s infinite;
+		}
+		figure:nth-child(8) {
+		   animation: xfade 48s 0s infinite;
+		}
+
+		@keyframes xfade{
+		   0%{
+		      opacity: 1;
+		   }
+		   10.5% {
+		      opacity:1;
+		   }
+		   12.5%{
+		      opacity: 0;
+		   }
+		   98% {
+		      opacity:0;
+		   }
+		   100% {
+		      opacity:1;
+		   }
+		}
+
+	</style>
+</head>
+<body>
+
+<div id="mainStuff" class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+	 <div id="rcb" class="w3-display-topleft w3-padding-large w3-xlarge">
+	 	Rutgers Coding Bootcamp
+	 </div>
+	 
+	<div class="w3-display-middle">
+	    <h1 id="welcomeHeader" class="w3-jumbo w3-animate-top">Welcome to "____"</h1>
+	</div>
+		
+	<div class="w3-display-middle">
+			
+		<a href="index.html"><button id="welcomeButton" type="button" class="btn btn-default btn-lg">Click to Continue</button></a>
+
+	</div>
+
+</div>
+
+<div id="backgroundPics" class="css-slideshow"> 
+
+  <figure> 
+    <img src="assets/images/music1.jpg" width="1000" height="700" /> 
+     <!-- <figcaption><strong>CSS3:</strong> CSS3 delivers a...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music2.jpg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music3.jpeg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music4.jpeg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music5.jpg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music6.jpg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music7.jpeg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+  <figure> 
+    <img src="assets/images/music8.jpeg" width="1500" height="700" /> 
+    <!-- <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>  -->
+  </figure> 
+
+</div>
+
+</body>
+</html>
