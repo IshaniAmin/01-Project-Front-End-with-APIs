@@ -4,6 +4,7 @@
 
 * {
 	box-sizing: border-box;
+	font-family: 'Muli', sans-serif;
 }
 
 #header {
@@ -27,11 +28,6 @@
 	border-radius: 25px
 }
 
-#options {
-	padding: 20px;
-	clear: both;
-}
-
 #optionBlock1{
 	background-color: #89D4D1;
 	color: white;
@@ -41,8 +37,7 @@
 	border: 2px solid #C0EEEC;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 #optionBlock2{
@@ -54,8 +49,7 @@
 	border: 2px solid #C0EEEC;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 #optionBlock3{
@@ -67,8 +61,7 @@
 	border: 2px solid #C0EEEC;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 .pictures {
@@ -78,3 +71,5 @@
 	padding: 10px;
 	border-radius: 25px
 }
+
+
