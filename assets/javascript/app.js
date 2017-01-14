@@ -54,48 +54,48 @@ $(document).ready(function(){
       });
 //---------------------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------------------
-    function results() {
+// //---------------------------------------------------------------------------------------
+//     function results() {
     
-          var artistInput = $("#query").val().trim();
+//           var artistInput = $("#query").val().trim();
                   
-          // http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
+//           // http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
 
-          // http://www.ticketmaster.com/search?tm_link=tm_homeA_header_search&user_input=ariana&q=ariana
+//           // http://www.ticketmaster.com/search?tm_link=tm_homeA_header_search&user_input=ariana&q=ariana
 
-          var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
+//           var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
 
 
-          $.ajax({
-              url: queryURL,
-              method: "GET"
-              }).done(function(response) {
+//           $.ajax({
+//               url: queryURL,
+//               method: "GET"
+//               }).done(function(response) {
 
-              var div = $("<div>");
+//               var div = $("<div>");
 
-              for (var i = 0; i < response._embedded.events.length; i++) {
-                var event = response._embedded.events[i].name;
-                var city = response._embedded.events[i]._embedded.venue[0].city.name;
-                var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
-                div.append(i+1 + ". " + 
-                  "<a href='www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
+//               for (var i = 0; i < response._embedded.events.length; i++) {
+//                 var event = response._embedded.events[i].name;
+//                 var city = response._embedded.events[i]._embedded.venue[0].city.name;
+//                 var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
+//                 div.append(i+1 + ". " + 
+//                   "<a href='www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
 
-                // <a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>
-              }
+//                 // <a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>
+//               }
 
-              $("#addEvents").html("<p>Upcoming performances:</p>");
+//               $("#addEvents").html("<p>Upcoming performances:</p>");
 
-              $("#addEvents").append(div);
+//               $("#addEvents").append(div);
 
-            });
+//             });
 
-      return false;
+//       return false;
 
-      };
-//---------------------------------------------------------------------------------------
+//       };
+// //---------------------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------------------
-    $(document).on("click", "#search", results);
+// //---------------------------------------------------------------------------------------
+//     $(document).on("click", "#search", results);
 //---------------------------------------------------------------------------------------
   
   }); //ends the "database.ref('/users').on("value", function(data)"
