@@ -1,11 +1,25 @@
     
-
+    #rcb {
+      font-weight: bold;
+      color: white;
+      font-size: 20px;
+      margin-left: 0;
+      margin-top: 5px;
+      z-index: 97;
+    }
+    
     #welcomeHeader {
-      margin-top: 600px;
+      color: white;
+      margin: 100px auto 0px auto;
+      z-index: 98;
     }
 
     #welcomeButton {
-      margin-top: 750px;
+      margin: 200px auto 0px auto;
+      z-index: 100;
+      width: 100px;
+      height: 75px;
+      border-radius: 25px;
     }
 
     #mainStuff {
