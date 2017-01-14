@@ -20,62 +20,73 @@
 </head>
 
 <body>
+<div class="container">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="index.html">Home</a></li>
+	  <li role="presentation"><a href="registration.html">Registration</a></li>
+	  <li role="presentation" class="active"><a href="#">Profiles</a></li>
+	  <li role="presentation"><a href="company_playlist.html">Playlist</a></li>
+	</ul>
 
-<div id="list" class="list-group">
-
-</div>
-
-	<div id="cards" class="row">
-	  <div class="col-md-5 col-md-offset-4">
-	    <div class="card">
-	      <div id="card1" class="card-block">
-	        <h3 id="cardTitle1" id="name" class="card-title">Name:</h3>
-	        	<div id = "cardText1">
-			        <p id="email" class="card-text">Email: </p>
-			        <p id="position" class="card-text">Position: </p>
-			        <p id="interests" class="card-text">Interests: </p>
-			        <p id="favSpot" class="lastText" class="card-text">Favorite Spot: </p>
-			    </div>
-	      </div>
-	    </div>
-	  </div>
-		
-		<br><br>
-
-	  <div class="col-md-5 col-md-offset-4">
-	    <div class="card">
-	      <div id="card2" class="card-block">
-	        <h3 id="cardTitle3" class="card-title">Favorite song</h3>
-	        	<div id = "cardText2">
-	        		<!-- <p class="lastText" class="card-text">Songs: </p> -->
-	        		<p id="addSongs"></p>
-	        	</div>
-	      </div>
-	    </div>
-	  </div>
-		
-		<br><br>
-
-	  <div class="col-md-5 col-md-offset-4">
-	    <div class="card">
-	      <div id="card3" class="card-block">
-	        <h3 id="cardTitle2" class="card-title">Upcoming Events</h3>
-	        	<div id = "cardText3">
-	        		<!-- <p class="lastText" class="card-text">Events: </p> -->
-	        		<!-- <p> Type in an Artist you would like to see! </p>
-						<form id="artist-search">
-	    					<input for=search type="text" id="query" value="" class="form-control" />
-	    					<input type="submit" id="search" class="button" value="Search" />
-						</form> -->
-					<div id="addEvents"></div>
-	        	</div>
-	      </div>
-	    </div>
-	  </div>
-
+	<div class="row">
+		<h1>Users Profiles</h1>
 	</div>
+	<div class="row">
+	 	<div class="col-md-4">
+			<div id="list" class="list-group"></div>
+		</div>
+		<div class="col-md-8">
+			<div class="col-md-12 col-md-offset1">
+				<div class="card">
+				  <div id="card1" class="card-block">
+				    <h3 id="cardTitle1" id="name" class="card-title">Name:</h3>
+				    	<div id = "cardText1">
+					        <p id="email" class="card-text">Email: </p>
+					        <p id="position" class="card-text">Position: </p>
+					        <p id="interests" class="card-text">Interests: </p>
+					        <p id="favSpot" class="lastText" class="card-text">Favorite Spot: </p>
+					    </div>
+				  </div>
+				</div>
+			</div>
+		
+			<br><br>
 
+			<div class="col-md-12 col-md-offset1">
+				<div class="card">
+			  		<div id="card2" class="card-block">
+				    <h3 id="cardTitle3" class="card-title">Favorite song</h3>
+				    	<div id = "cardText2">
+				    		<!-- <p class="lastText" class="card-text">Songs: </p> -->
+				    		<p id="addSongs"></p>
+				    	</div>
+				  	</div>
+				</div>
+			</div>
+		
+			<br><br>
 
+			<div class="col-md-12 col-md-offset1">
+				<div class="card">
+				  	<div id="card3" class="card-block">
+				    	<h3 id="cardTitle2" class="card-title">Upcoming Events</h3>
+				    	<div id = "cardText3">
+				    		<!-- <p class="lastText" class="card-text">Events: </p> -->
+				    		<!-- <p> Type in an Artist you would like to see! </p>
+								<form id="artist-search">
+									<input for=search type="text" id="query" value="" class="form-control" />
+									<input type="submit" id="search" class="button" value="Search" />
+								</form> -->
+							<div id="addEvents"></div>
+				    	</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- <script type="text/javascript" src="assets/javascript/registration.js"></script> -->

@@ -1,7 +1,7 @@
 $(document).ready(function(){  
 
 // Initialize Firebase
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 var config = {
    apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
    authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
@@ -10,15 +10,15 @@ var config = {
    messagingSenderId: "780675474319"
 };
 firebase.initializeApp(config);
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
   //Variables
   //Get a reference to the database service
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
   var database = firebase.database();
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 database.ref('/users').on("value", function(data){
 
   $(".list-group-item").on("click", function(event) {
@@ -29,9 +29,10 @@ database.ref('/users').on("value", function(data){
     $("#interests").empty();
     $("#favSpot").empty();
     $("#addSongs").empty();
+    $("#addEvents").html("No Events");
 
     var currentKey = $(this).attr("data-key");
-    //------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
     database.ref('users/' + currentKey).on('value', function(data) {
       // console.log(currentKey);
       $("#cardTitle1").append("Name: " + data.val().user_name);
@@ -48,6 +49,8 @@ database.ref('/users').on("value", function(data){
                 ref.on("value",function(snapshot) {
                   // console.log(snapshot.val().song_name);
                   $("#addSongs").append(snapshot.val().song_name + " by " + snapshot.val().song_artist + "<br>");
+
+//Ticketmaster API
 //-------------------------------------------------------------------------------------------
                   console.log(snapshot.val().song_artist);
                   var artistInput = snapshot.val().song_artist;
@@ -66,7 +69,7 @@ database.ref('/users').on("value", function(data){
                       var city = response._embedded.events[i]._embedded.venue[0].city.name;
                       var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
                       div.append(i+1 + ". " + 
-                        "<a href='www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
+                        "<a href='http://www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
                     }
 
                     $("#addEvents").html("<p>Upcoming performances:</p>");
@@ -77,7 +80,7 @@ database.ref('/users').on("value", function(data){
 
                 });
               }
-        //-----------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
     });//end database.ref('users/')
 
@@ -87,49 +90,13 @@ database.ref('/users').on("value", function(data){
     })
   });
 
-//---------------------------------------------------------------------------------------
-
-// //---------------------------------------------------------------------------------------
-  
-//           var artistInput = $("#query").val().trim();
-                
-//           // http://app.ticketmaster.com/discovery/v1/events.json?keyword=ariana&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction
-
-//           // http://www.ticketmaster.com/search?tm_link=tm_homeA_header_search&user_input=ariana&q=ariana
-
-//           var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
-
-
-          // $.ajax({
-          //     url: queryURL,
-          //     method: "GET"
-          //     }).done(function(response) {
-
-          //     var div = $("<div>");
-
-          //     for (var i = 0; i < response._embedded.events.length; i++) {
-          //       var event = response._embedded.events[i].name;
-          //       var city = response._embedded.events[i]._embedded.venue[0].city.name;
-          //       var state = response._embedded.events[i]._embedded.venue[0].state.stateCode;
-          //       div.append(i+1 + ". " + 
-          //         "<a href='www.ticketmaster.com" + response._embedded.events[i]._embedded.attractions[0].url + "'>" + event + " in " + city + ", " + state + "</a>" + "<br>");
-
-          //       // <a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>
-          //     }
-
-          //     $("#addEvents").html("<p>Upcoming performances:</p>");
-
-          //     $("#addEvents").append(div);
-
-          //   });
-// //---------------------------------------------------------------------------------------
-
+//-------------------------------------------------------------------------------------------
 
 }); //ends the "database.ref('/users').on("value", function(data)"
 
 
 // Puts users' names into buttons dynamically
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 database.ref('/users').on("child_added", function(childSnapshot) {
 
   $("#list").append("<button id='listButtons' type='button' class='list-group-item' data-key=" + childSnapshot.key + ">" + childSnapshot.val().user_name + "</button>");
@@ -138,7 +105,7 @@ database.ref('/users').on("child_added", function(childSnapshot) {
 }, function(errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });
-//---------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
     
 

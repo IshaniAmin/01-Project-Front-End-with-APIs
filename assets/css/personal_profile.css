@@ -3,10 +3,15 @@
 	box-sizing: border-box;
 }
 
+h1 {
+	text-align: center;
+	padding: 10px;
+}
+
 #listButtons {
 	font-family: 'Muli', sans-serif;
 	padding: 10px;
-	width: 25%;
+	width: 100%;
 	text-align: center;
 	margin-bottom: 10px;
 }

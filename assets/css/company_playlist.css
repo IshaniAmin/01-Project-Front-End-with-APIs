@@ -1,8 +1,31 @@
+#body-pic {
+	background-image: url("../images/company_playlist_background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 
+/*	background-image-opacity: 0.5;
+	margin: auto;
+	display: inline-block;*/
+	/*opacity: 0.5;*/
 
-#jp_container_2 {
-	margin-left: 100px;
-	width: 250px;
-	align-content: center;
 }
 
+#head {
+	font-weight: bold;
+	font-style: italic;
+	margin-left: 125px;
+}
+
+#jp_container_1 {
+	margin-left: 42px;
+
+}
+
+button:hover{
+     background: white;
+}
+
+#song-list {
+	font-weight: bold;
+	color: black;
+}
