@@ -14,5 +14,5 @@ Here we have created an application that allows employees of a company to become
 - JavsScript
 - jQuery
 - AJAX
-- APIs
+- APIs (Spotify and Ticketmaster)
 - Firebase
