@@ -25,7 +25,7 @@ form, #results { padding: 0 20px; }
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
  
-<script type="text/javascript>
+<script type="text/javascript">
 jQuery(document).ready(function ($) {
  
   $('#searchquery').keyup(function () {
@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
     // we can request a maximum of 50 search results in a batch
     url = url + '&max-results=50';
  
+
     $.getJSON(url + "&q=" + q, function (json) {
  
       var count = 0;

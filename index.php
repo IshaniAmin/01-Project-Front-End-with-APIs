@@ -1,0 +1,1 @@
+<?php include_once("welcome_page.html"); ?>

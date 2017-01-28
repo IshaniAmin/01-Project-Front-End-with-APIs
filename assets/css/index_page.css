@@ -1,74 +1,73 @@
 
-/*http://paletton.com/#uid=13h0u0kg3CW68VpblN6kcuOojrd*/
-
-
 * {
 	box-sizing: border-box;
+	font-family: 'Muli', sans-serif;
 }
 
 #header {
 	font-size: 50px;
 	text-align: center;
 	padding: 20px;
-	background-color: #208480;
-	color: white;
+	background-color: white;
+	opacity: 0.7;
+	color: black;
 	font-family: 'Muli', sans-serif;
-	border: 2px solid #C0EEEC;
+	border: 2px solid grey;
 	border-radius: 25px
 }
 
 #introParagraph {
-	background-color: #5AB4B1;
+	background-color: white;
+	opacity: 0.7;
 	padding: 20px;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	color: white;
-	border: 2px solid #C0EEEC;
+	color: black;
+	border: 2px solid grey;
 	border-radius: 25px
 }
 
 #options {
 	padding: 20px;
-	clear: both;
 }
 
 #optionBlock1{
-	background-color: #89D4D1;
-	color: white;
+	background-color: white;
+	opacity: 0.7;
+	color: black;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: center;
-	border: 2px solid #C0EEEC;
+	border: 2px solid grey;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 #optionBlock2{
-	background-color: #89D4D1;
-	color: white;
+	background-color: white;
+	opacity: 0.7;
+	color: black;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: center;
-	border: 2px solid #C0EEEC;
+	border: 2px solid grey;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 #optionBlock3{
-	background-color: #89D4D1;
-	color: white;
+	background-color: white;
+	opacity: 0.7;
+	color: black;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: center;
-	border: 2px solid #C0EEEC;
+	border: 2px solid grey;
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
-	border-radius: 25px
-	/*text-decoration: underline;*/
+	border-radius: 25px;
 }
 
 .pictures {
@@ -78,3 +77,78 @@
 	padding: 10px;
 	border-radius: 25px
 }
+
+/*CSS for Background Images*/
+/*--------------------------------------------------------*/
+
+  #mainStuff {
+    z-index: 99;
+  }
+
+  #backgroundPics {
+    z-index: 0;
+  }
+
+  .css-slideshow{
+     position: relative;
+     max-width: 100%;
+  }
+
+  .css-slideshow figure{
+    margin: 0;
+    position: absolute;
+  }
+    
+  .css-slideshow figure{
+    opacity:0;
+  }
+
+
+  figure:nth-child(1) {
+    animation: xfade 48s 42s infinite;
+  }
+  figure:nth-child(2) {
+    animation: xfade 48s 36s infinite;
+  }
+  figure:nth-child(3) {
+    animation: xfade 48s 30s infinite;
+  }
+  figure:nth-child(4) {
+    animation: xfade 48s 24s infinite;
+  }
+  figure:nth-child(5) {
+    animation: xfade 48s 18s infinite;
+  }
+  figure:nth-child(6) {
+    animation: xfade 48s 12s infinite;
+  }
+  figure:nth-child(7) {
+    animation: xfade 48s 6s infinite;
+  }
+  figure:nth-child(8) {
+    animation: xfade 48s 0s infinite;
+  }
+
+  @keyframes xfade{
+    0%{
+      opacity: 1;
+    }
+    10.5% {
+      opacity:1;
+    }
+    12.5%{
+      opacity: 0;
+    }
+    98% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+/*--------------------------------------------------------*/
+
+
+
+

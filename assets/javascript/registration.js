@@ -225,4 +225,3 @@ $(document).on("click", "#search", displayResults);
        $("#searchResults").empty();
   });	
 
-});
