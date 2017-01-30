@@ -6,7 +6,7 @@ Here we have created an application that allows employees of a company to become
 
 
 ## Contributors
-[Ishani Amin](https://github.com/IshaniAmin) || [Arron Linton](https://github.com/alinton12) || [Rhyna Silva](https://github.com/rhynas)
+[Ishani Amin](https://github.com/IshaniAmin) || [Arron Linton](https://github.com/ArronJLinton) || [Rhyna Silva](https://github.com/rhynas)
 
 ## Technologies Used
 - HTML
