@@ -209,19 +209,19 @@ $(document).ready( function() {
 		// 	database.ref('users/').push({
 		// 		user_fav_songs: fav_song
 			    
-		//   	dateAdded: firebase.database.ServerValue.TIMESTAMP
+		//   	// dateAdded: firebase.database.ServerValue.TIMESTAMP
 		// 	});
 
 		// })
        })
-    }
+    };
  
 // Exceutes the Function to Display Results from Spotify API
-$(document).on("click", "#search", displayResults);
+$(document).on("click", "#search", displayResults());
 
- $("#clr").on("click", function(event) {
+$("#clr").on("click", function(event) {
         event.preventDefault();
        $("#search-form")[0].reset();
        $("#searchResults").empty();
-  });	
+  });
 
