@@ -57,10 +57,17 @@ database.ref('/users').on("value", function(data){
 
                   var queryURL = "http://app.ticketmaster.com/discovery/v1/events.json?keyword="+ artistInput +"&apikey=zyleKSfADiALla0NEoeit7ieP42ITTfA&callback=myFunction"
 
+
+          for (var i=0; i < data.val().user_fav_songs.length; i++) {
+            
+            $("#addSongs").append(data.val().user_fav_songs[i] + "<br>");
+          }
+
                   $.ajax({
                     url: queryURL,
                     method: "GET"
                   }).done(function(response) {
+
 
                     var div = $("<div>");
 

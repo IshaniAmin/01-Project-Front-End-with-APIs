@@ -1,5 +1,4 @@
-//Variables to store the users information prior to 
-//storing in the database
+
 var user_name = "";
 var user_email = "";
 var user_position = "";
@@ -8,38 +7,28 @@ var user_interest = "";
 var user_fav_spot = "";
 var user_fav_songs = []; 
 
-
-//Variables to store the music information prior to 
-//storing in the database
 var song_id = "";
 var song_name = "";
 var song_url = "";
 var song_picture = "";
-var song_artist = ""; //I added
-
-var index; // moved from other line
-var songList = []; // moved from another line
-var fav_song = [];
 
 // Initialize Firebase
-var config = {
-     apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
-     authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
-     databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
-     storageBucket: "project-01-front-end-wit-39454.appspot.com",
-     messagingSenderId: "780675474319"
-};
-firebase.initializeApp(config);
-//Variables
-//Get a reference to the database service
-var database = firebase.database();   
+    var config = {
+         apiKey: "AIzaSyARm7xKPSKNRunk49DwplrL7Sb3mA0wTa4",
+         authDomain: "project-01-front-end-wit-39454.firebaseapp.com",
+         databaseURL: "https://project-01-front-end-wit-39454.firebaseio.com",
+         storageBucket: "project-01-front-end-wit-39454.appspot.com",
+         messagingSenderId: "780675474319"
+    };
+    firebase.initializeApp(config);
+    //Variables
+    //Get a reference to the database service
+    var database = firebase.database();   
 
 // Capture Button Click
 $("#submit-playlist").on("click", function(event) {
 	
 	event.preventDefault();
-
-	//get the information entered in the form
 	name = $("#profile-name").val().trim();
 	email = $("#profile-email").val().trim();
 	position = $("#profile-position").val().trim();
@@ -47,14 +36,13 @@ $("#submit-playlist").on("click", function(event) {
 	fav_spot = $("#profile-fav-spot").val().trim();
 
 	// Code to push songList array into the user_fav_songs array
-	// for (var k=0; k < songList.length; k++) {
-	// 	fav_song = songList[k];
-	// 	user_fav_songs.push(fav_song);
-	// }
 
-
+	for (var k=0; k < songList.length; k++) {
+		fav_song = songList[k];
+		user_fav_songs.push(fav_song);
+	}
 	
-	// Code to push the data into the user database
+	// Code for the push
 	database.ref('users/').push({
 			user_name : name,
 			user_email : email,
@@ -62,33 +50,34 @@ $("#submit-playlist").on("click", function(event) {
 			// user_profile_picture : profile,
 			user_interest : interest, 
 			user_fav_spot: fav_spot,
-			user_fav_songs: fav_song			    
-	  		// dateAdded: firebase.database.ServerValue.TIMESTAMP
+			user_fav_songs: fav_song
+			    
+	  	// dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 	console.log(user_fav_songs);
 	window.location.replace("personal_profile.html");
 });
 
 
-// var index;
-// var songList = [];
+var index;
+var songList = [];
 
 $(document).ready( function() {
-	function clearSongSearch(){
-		$("#search-form")[0].reset();
-       	$("#searchResults").empty();
-	}
 
 	function renderSongs(event) {
 
 		$(".table #displayList").empty();
 
 		for (var j=0; j < songList.length; j++) {
-			var songDiv = $("<tr class='playlistSong'>");
-			var newAdd = songList[j]
-			songDiv.append("<td>" + newAdd + "</td>");
-			// var newAdd = $("<iframe class='song'>").attr("src", songList[j]).attr("frameborder", 0).attr("allowtransparency", true);
-			$(".table #displayList").prepend(songDiv);
+
+		var songDiv = $("<tr class='playlistSong'>");
+
+		var newAdd = songList[j]
+
+		songDiv.append("<td>" + newAdd + "</td>");
+		// var newAdd = $("<iframe class='song'>").attr("src", songList[j]).attr("frameborder", 0).attr("allowtransparency", true);
+
+		$(".table #displayList").prepend(songDiv);
 
 		}
 
@@ -119,7 +108,7 @@ $(document).ready( function() {
 
 
         	for(var i = 0; i < data.items.length; i++) {
-        		var tracks = $("<tr id='track'>");
+        	var tracks = $("<tr id='track'>");
 
         		var songName = "<br>" + data.items[i].name + "<br>";	
         		var artist = data.items[i].artists[0].name;
@@ -191,7 +180,7 @@ $(document).ready( function() {
 				picture = data.items[index].album.images[0].url;
 				     	
 				// Code for the push
-				database.ref('songs/'+id).set({
+				database.ref('songs/').push({
 					song_id: id,
 					song_name: name,
 					song_artist: artist,
@@ -209,7 +198,7 @@ $(document).ready( function() {
 				console.log(trackName);
 				songList.push(trackName);
 	     		renderSongs();
-				fav_song.push(id);
+				
 			});
 
 		// $("#submit-playlist").on("click", function() {
@@ -220,19 +209,19 @@ $(document).ready( function() {
 		// 	database.ref('users/').push({
 		// 		user_fav_songs: fav_song
 			    
-		//   	dateAdded: firebase.database.ServerValue.TIMESTAMP
+		//   	// dateAdded: firebase.database.ServerValue.TIMESTAMP
 		// 	});
 
 		// })
        })
-    }
+    };
  
 // Exceutes the Function to Display Results from Spotify API
-$(document).on("click", "#search", displayResults);
+$(document).on("click", "#search", displayResults());
 
- $("#clr").on("click", function(event) {
+$("#clr").on("click", function(event) {
         event.preventDefault();
-      	clearSongSearch()
-  });	
+       $("#search-form")[0].reset();
+       $("#searchResults").empty();
+  });
 
-});
