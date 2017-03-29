@@ -38,9 +38,9 @@ jQuery.noConflict()
     // var trackUri = "https://embed.spotify.com/?uri=spotify:track:" + childSnapshot.val().song_id; 
     // console.log(trackUri);
 
-      // $("#list").append("<button type='button' class='list-group-item' data-key=" + childSnapshot.key + ">" + childSnapshot.val().song_name + "</button>");
-      // $("#list").append("<img  width='300px' height='300px' class='img-rounded' data-key=" + childSnapshot.key + " src=" + childSnapshot.val().song_picture + ">");
-      // $("#list").append("<iframe height='150px'data-key=" + childSnapshot.key + " src=" + trackUri + ">")
+    //   $("#list").append("<button type='button' class='list-group-item' data-key=" + childSnapshot.key + ">" + childSnapshot.val().song_name + "</button>");
+    //   $("#list").append("<img  width='300px' height='300px' class='img-rounded' data-key=" + childSnapshot.key + " src=" + childSnapshot.val().song_picture + ">");
+    //   $("#list").append("<iframe height='150px'data-key=" + childSnapshot.key + " src=" + trackUri + ">")
       var url = childSnapshot.val().song_url;
 
       new jPlayerPlaylist({
