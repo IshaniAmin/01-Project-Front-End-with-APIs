@@ -137,12 +137,10 @@
        }
     }
 
-  .container {
-    padding: 10px 10px;
-    float: left;
-  }
+
 
 @media screen and (max-width: 640px) {
 
 
   }
+

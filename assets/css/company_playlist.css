@@ -1,14 +1,4 @@
 
-
-
-#jp_container_2 {
-	margin-left: 100px;
-	width: 250px;
-	align-content: center;
-}
-
-
-
 #body-pic {
 	background-image: url("../images/company_playlist_background.jpg");
 	background-repeat: no-repeat;
@@ -41,3 +31,12 @@ button:hover{
 	color: black;
 }
 
+.footer {
+	position: absolute;
+	right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
